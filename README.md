@@ -2,17 +2,39 @@
   <img src="https://cwmkt.com.br/wp-content/uploads/2023/08/logo-github-cwmkt.svg" alt="DispZap Whats Marketing" width="240" />
   <p align="center">Seja bem-vindo ao Guia de Rebuild no chatwoot 🚀</p>
   </p>
-
+ 
   <details>
-    <summary>Workflow Ajusta Contato</summary>
-  </details>
+<summary>Para individualizar conversas entre agentes</summary>
 
-  <details>
-    <summary>Workflow Ajusta Agent name vazio</summary>
-  </details>
+```bash
+mv /home/chatwoot/chatwoot/app/javascript/dashboard/components/ChatList.vue /home/chatwoot/chatwoot/app/javascript/dashboard/components/ChatList.vue.old
+```
 
-  <details>
-    <summary>Workflow Automatic personalizado</summary>
-  </details>
+```bash
+cd /home/chatwoot/chatwoot/app/javascript/dashboard/components
+```
 
-  
+```bash
+wget "https://raw.githubusercontent.com/cwmkt/quepasa/main/ChatList.vue"
+```
+
+Após alterações acima, rebuildar seu Chatwoot
+
+```bash
+sudo -i -u chatwoot
+cd chatwoot
+```
+
+```bash
+rake assets:precompile RAILS_ENV=production
+```
+
+```bash
+exit
+```
+
+```bash
+systemctl daemon-reload && systemctl restart chatwoot.target
+```
+
+</details>
